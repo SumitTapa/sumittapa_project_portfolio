@@ -628,105 +628,105 @@
 
             <footer
                 style="margin-top: 50px; text-align: center; padding: 40px 20px; border-top: 1px solid var(--jet); background: linear-gradient(to bottom, transparent, rgba(255, 219, 112, 0.03)); border-radius: 0 0 20px 20px;">
-                <div style="display: inline-block; position: relative; margin-bottom: 20px;">
-                    <!-- Custom Animated Neural Network SVG -->
-                    <svg width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        style="filter: drop-shadow(0 0 5px rgba(255, 219, 112, 0.3));">
-                        <!-- Connections (Lines) -->
-                        <g stroke="currentColor" stroke-width="1" stroke-opacity="0.2"
-                            style="color: var(--orange-yellow-crayola);">
-                            <path d="M10 20 L40 10" class="nn-path" />
-                            <path d="M10 20 L40 30" class="nn-path" />
-                            <path d="M10 40 L40 30" class="nn-path" />
-                            <path d="M10 40 L40 50" class="nn-path" />
-                            <path d="M40 10 L70 30" class="nn-path" />
-                            <path d="M40 30 L70 30" class="nn-path" />
-                            <path d="M40 50 L70 30" class="nn-path" />
-                        </g>
-                        <!-- Nodes -->
-                        <g fill="var(--orange-yellow-crayola)">
-                            <!-- Input Layer -->
-                            <circle cx="10" cy="20" r="3" class="nn-node" style="animation-delay: 0s;" />
-                            <circle cx="10" cy="40" r="3" class="nn-node" style="animation-delay: 0.2s;" />
-                            <!-- Hidden Layer -->
-                            <circle cx="40" cy="10" r="3" class="nn-node" style="animation-delay: 0.4s;" />
-                            <circle cx="40" cy="30" r="3" class="nn-node" style="animation-delay: 0.6s;" />
-                            <circle cx="40" cy="50" r="3" class="nn-node" style="animation-delay: 0.8s;" />
-                            <!-- Output Layer -->
-                            <circle cx="70" cy="30" r="4" class="nn-node-output" />
-                        </g>
-                    </svg>
+                <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 25px;">
+                    <div
+                        style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+                        <!-- Glowing Core -->
+                        <div class="ai-core"></div>
+                        <!-- Main AI Icon -->
+                        <ion-icon name="brain-outline"
+                            style="font-size: 40px; color: var(--orange-yellow-crayola); position: relative; z-index: 2; animation: float 3s infinite ease-in-out;"></ion-icon>
+                        <!-- Orbiting Particles -->
+                        <div class="ai-particle p1"></div>
+                        <div class="ai-particle p2"></div>
+                        <div class="ai-particle p3"></div>
+                    </div>
                 </div>
 
                 <style>
-                    .nn-node {
-                        animation: nodePulse 2s infinite ease-in-out;
+                    .ai-core {
+                        position: absolute;
+                        width: 45px;
+                        height: 45px;
+                        background: radial-gradient(circle, rgba(255, 219, 112, 0.4) 0%, transparent 70%);
+                        border-radius: 50%;
+                        animation: pulseCore 2s infinite ease-in-out;
                     }
 
-                    .nn-node-output {
-                        animation: outputPulse 2s infinite ease-in-out;
-                        fill: #4db8ff;
-                        /* Neural Blue */
-                        filter: drop-shadow(0 0 8px #4db8ff);
+                    .ai-particle {
+                        position: absolute;
+                        width: 6px;
+                        height: 6px;
+                        background: var(--orange-yellow-crayola);
+                        border-radius: 50%;
+                        filter: drop-shadow(0 0 5px var(--orange-yellow-crayola));
                     }
 
-                    .nn-path {
-                        stroke-dasharray: 100;
-                        stroke-dashoffset: 100;
-                        animation: flow 3s infinite linear;
+                    .p1 {
+                        animation: orbit1 4s infinite linear;
                     }
 
-                    @keyframes nodePulse {
+                    .p2 {
+                        animation: orbit2 5s infinite linear;
+                    }
+
+                    .p3 {
+                        animation: orbit3 6s infinite linear;
+                    }
+
+                    @keyframes float {
 
                         0%,
                         100% {
-                            opacity: 0.5;
-                            transform: scale(0.8);
+                            transform: translateY(0);
                         }
 
                         50% {
-                            opacity: 1;
-                            transform: scale(1.2);
+                            transform: translateY(-5px);
                         }
                     }
 
-                    @keyframes outputPulse {
+                    @keyframes pulseCore {
 
                         0%,
                         100% {
-                            filter: drop-shadow(0 0 2px #4db8ff);
                             transform: scale(1);
+                            opacity: 0.4;
                         }
 
                         50% {
-                            filter: drop-shadow(0 0 12px #4db8ff);
                             transform: scale(1.3);
+                            opacity: 0.7;
                         }
                     }
 
-                    @keyframes flow {
+                    @keyframes orbit1 {
+                        from {
+                            transform: rotate(0deg) translateX(35px) rotate(0deg);
+                        }
+
                         to {
-                            stroke-dashoffset: 0;
+                            transform: rotate(360deg) translateX(35px) rotate(-360deg);
                         }
                     }
 
-                    @keyframes pulse {
-
-                        /* Keeping original pulse for other elements if needed */
-                        0% {
-                            transform: scale(1);
-                            opacity: 0.8;
+                    @keyframes orbit2 {
+                        from {
+                            transform: rotate(120deg) translateX(30px) rotate(-120deg);
                         }
 
-                        50% {
-                            transform: scale(1.1);
-                            opacity: 1;
-                            filter: drop-shadow(0 0 8px var(--orange-yellow-crayola));
+                        to {
+                            transform: rotate(480deg) translateX(30px) rotate(-480deg);
+                        }
+                    }
+
+                    @keyframes orbit3 {
+                        from {
+                            transform: rotate(240deg) translateX(40px) rotate(-240deg);
                         }
 
-                        100% {
-                            transform: scale(1);
-                            opacity: 0.8;
+                        to {
+                            transform: rotate(600deg) translateX(40px) rotate(-600deg);
                         }
                     }
                 </style>
